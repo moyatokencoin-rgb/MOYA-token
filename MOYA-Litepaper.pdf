@@ -1,1 +1,8 @@
 scripts/deploy.js
+async function main() {
+  const MOYA = await ethers.getContractFactory("MOYA");
+  const moya = await MOYA.deploy();
+  await moya.waitForDeployment();
+  console.log("MOYA deployed to:", await moya.getAddress());
+}
+main();
